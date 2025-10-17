@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <header class="main">
+        <h1>{{ article.title }}</h1>
+    </header>
+
+    <!-- Добавим информацию о статье -->
+    <p>
+        Опубликовано: {{ article.locale_date }} |
+        Автор: {{ article.author }} |
+        Категория: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+    </p>
+
+    <hr class="major" />
+
+    <!-- Здесь будет полный контент статьи -->
+    <div class="content">
+        {{ article.content }}
+    </div>
+</section>
+{% endblock %}

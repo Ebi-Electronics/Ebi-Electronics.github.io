@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+{% extends "base.html" %}
+
+{% block content %}
+
+							{% if articles %}
+								{# Присваиваем самой новой статье переменную для удобства #}
+								{% set latest_post = articles[0] %}
+
+								<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1>{{ latest_post.title }}</h1>
+											<p>The newest post!</p>
+										</header>
+										<p>{{ latest_post.summary }}</p>
+										<ul class="actions">
+											<li><a href="{{ SITEURL }}/{{ latest_post.url }}" class="button big">More</a></li>
+										</ul>
+									</div>
+									<span class="image object">
+										{# Покажем картинку, только если она указана в статье #}
+										{% if latest_post.image %}
+											<img src="{{ SITEURL }}/images/{{ latest_post.image }}" alt="{{ latest_post.title }}" />
+										{% else %}
+											{# Картинка-заглушка, если в статье нет своей #}
+											<img src="{{ SITEURL }}/theme/images/pic10.jpg" alt="" />
+										{% endif %}
+									</span>
+								</section>
+							{% endif %}
+
+							<!-- Section -->
+								<!-- <section>
+									<header class="major">
+										<h2>Erat lacinia</h2>
+									</header>
+									<div class="features">
+										<article>
+											<span class="icon fa-gem"></span>
+											<div class="content">
+												<h3>Portitor ullamcorper</h3>
+												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-paper-plane"></span>
+											<div class="content">
+												<h3>Sapien veroeros</h3>
+												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-rocket"></span>
+											<div class="content">
+												<h3>Quam lorem ipsum</h3>
+												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-signal"></span>
+											<div class="content">
+												<h3>Sed magna finibus</h3>
+												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											</div>
+										</article>
+									</div>
+								</section> -->
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Popular projects</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a href="#" class="image"><img src="{{ SITEURL }}/theme/images/pic01.jpg" alt="" /></a>
+											<h3>Stylosynth</h3>
+											<p>Portable syntheseizer with styluses.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{{ SITEURL }}/theme/images/pic02.jpg" alt="" /></a>
+											<h3>uNomad</h3>
+											<p>Portable guitar amplifier with built in analog effects</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+									</div>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Popular posts</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a href="#" class="image"><img src="{{ SITEURL }}/theme/images/pic01.jpg" alt="" /></a>
+											<h3>Inside encoder</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{{ SITEURL }}/theme/images/pic02.jpg" alt="" /></a>
+											<h3>Distortion disassembly</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+									</div>
+								</section>
+
+								<!-- Section с постами -->
+    <section>
+        <header class="major">
+            <h2>Последние записи</h2>
+        </header>
+        <div class="posts">
+            {% for article in articles %}
+            <article>
+                <a href="{{ SITEURL }}/{{ article.url }}" class="image">
+                    <!-- Добавим картинку из метаданных статьи -->
+                    {% if article.image %}
+                    <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.title }}" />
+                    {% endif %}
+                </a>
+                <h3>{{ article.title }}</h3>
+                <!-- Выводим краткое содержание (summary) -->
+                <p>{{ article.summary }}</p>
+                <ul class="actions">
+                    <li><a href="{{ SITEURL }}/{{ article.url }}" class="button">Читать далее</a></li>
+                </ul>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+								{% endblock %}
