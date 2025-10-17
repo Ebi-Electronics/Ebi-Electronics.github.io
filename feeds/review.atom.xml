@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ebi Electronics - Review</title><link href="/" rel="alternate"></link><link href="/feeds/review.atom.xml" rel="self"></link><id>/</id><updated>2025-10-03T10:20:00+02:00</updated><subtitle>Another blog about electronics. Now with sea taste!</subtitle><entry><title>The newest post</title><link href="/the-newest-post.html" rel="alternate"></link><published>2025-10-03T10:20:00+02:00</published><updated>2025-10-03T10:20:00+02:00</updated><author><name>RDash</name></author><id>tag:None,2025-10-03:/the-newest-post.html</id><content type="html">&lt;p&gt;The newest post&lt;/p&gt;
+&lt;h1&gt;Header 1 of the newest post&lt;/h1&gt;
+&lt;p&gt;testy test
+kekeke&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;code test
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Review"></category></entry><entry><title>My First Review</title><link href="/my-first-review.html" rel="alternate"></link><published>2010-12-03T10:20:00+01:00</published><updated>2010-12-03T10:20:00+01:00</updated><author><name>RDash</name></author><id>tag:None,2010-12-03:/my-first-review.html</id><content type="html">&lt;p&gt;Following is a review of my favorite mechanical keyboard.&lt;/p&gt;
+&lt;h1&gt;test article&lt;/h1&gt;
+&lt;p&gt;$$ f = kx + b \sigma $$&lt;/p&gt;
+&lt;p&gt;adsfadsf
+adfadf
+adfadf&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sdf&lt;/li&gt;
+&lt;li&gt;sdf &lt;/li&gt;
+&lt;li&gt;asd&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Review"></category></entry></feed>
