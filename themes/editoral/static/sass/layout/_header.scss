@@ -12,20 +12,38 @@
 		padding: 6em 0 1em 0;
 		position: relative;
 
-		> * {
+		.header-left {
+			@include vendor('display', 'flex');
+			@include vendor('flex-direction', 'column');
+			@include vendor('justify-content', 'center');
 			@include vendor('flex', '1');
 			margin-bottom: 0;
+		}
+
+		.header-right {
+			@include vendor('flex', '0 0 auto');
+			margin-bottom: 0;
+		}
+
+		.site-branding {
+			@include vendor('display', 'flex');
+			@include vendor('flex-direction', 'column');
+			@include vendor('justify-content', 'center');
 		}
 
 		.logo {
 			border-bottom: 0;
 			color: inherit;
 			font-family: _font(family-heading);
-			font-size: 1.125em;
+			font-size: 2.5em;
+			line-height: 1.1;
 		}
 
-		.icons {
-			text-align: right;
+		.site-subtitle {
+			font-size: 1em;
+			letter-spacing: 0.075em;
+			margin: 0.5em 0 0 0;
+			text-transform: none;
 		}
 
 		@include breakpoint('<=xlarge') {
@@ -36,16 +54,12 @@
 			padding-top: 6.5em;
 
 			.logo {
-				font-size: 1.25em;
+				font-size: 1.75em;
 				margin: 0;
 			}
 
-			.icons {
-				height: (6.25em / 1.25);
-				line-height: (6.25em / 1.25);
-				position: absolute;
-				right: (-0.625em / 1.25);
-				top: 0;
+			.site-subtitle {
+				font-size: 0.9em;
 			}
 		}
 	}

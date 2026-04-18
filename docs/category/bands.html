@@ -19,7 +19,7 @@
 		
 	</head>
 	
-	<body class="is-preload">
+	<body class="is-preload" data-pagefind-ignore="all">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -30,18 +30,17 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Ebi Electronics</strong></a>
-									<p>Another blog about electronics. Now with sea taste!</p>
-									<ul class="icons">
-										<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li> -->
-									</ul>
-									<span class="image object">
-										<img src="/theme/images/shrimp-logo.jpg" alt="" height="100"/>
-									</span>
+									<div class="header-left">
+										<div class="site-branding">
+											<a href="index.html" class="logo"><strong>Ebi Electronics</strong></a>
+										</div>
+										<p class="site-subtitle">Another blog about electronics. Now with sea taste!</p>
+									</div>
+									<div class="header-right">
+										<span class="image object">
+											<img src="/theme/images/shrimp_logo.png" alt="" height="100"/>
+										</span>
+									</div>
 								</header>
 
 
@@ -162,15 +161,13 @@ are all quality songs by Gunship. Check out those amazing music videos!</p>
 								<!-- Section с постами -->
     <section>
         <header class="major">
-            <h2>Последние записи</h2>
+            <h2>Latest Posts</h2>
         </header>
         <div class="posts">
             <article>
                 <a href="/gunship.html" class="image">
-                    <!-- Добавим картинку из метаданных статьи -->
                 </a>
-                <h3>Gunship</h3>
-                <!-- Выводим краткое содержание (summary) -->
+                <h3><a href="/gunship.html">Gunship</a></h3>
                 <p><p><a href="https://www.gunshipmusic.com/">Gunship</a> is a <em>retro synthwave</em> artist out of the UK.</p>
 <p><a href="https://www.youtube.com/watch?v=uYRZV8dV10w">Revel in Your Time</a>, 
 <a href="https://www.youtube.com/watch?v=-nC5TBv3sfU">Tech Noir</a>, 
@@ -182,10 +179,13 @@ are all quality songs by Gunship. Check out those amazing music videos!</p>
 <a href="https://trevorsomething.bandcamp.com/">Trevor Something</a>, 
 <a href="https://droidbishop.bandcamp.com/">Droid Bishop …</a></p></p>
                 <ul class="actions">
-                    <li><a href="/gunship.html" class="button">Читать далее</a></li>
+                    <li><a href="/gunship.html" class="button">Read more</a></li>
                 </ul>
             </article>
         </div>
+        <ul class="actions">
+            <li><a href="/archives.html" class="button big">All posts</a></li>
+        </ul>
     </section>
 							
 
@@ -197,20 +197,17 @@ are all quality songs by Gunship. Check out those amazing music videos!</p>
 						<div class="inner">
 
 							<!-- Search -->
-								<!-- <section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section> -->
-
+						<section id="search" class="alt">
+							<div id="pagefind-search"></div>
+						</section>
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">Posts</a></li>
+										<li><a href="/index.html">Homepage</a></li>
+										<li><a href="/archives.html">Posts</a></li>
 										<li>
 											<span class="opener">Projects</span>
 											<ul>
@@ -276,6 +273,33 @@ are all quality songs by Gunship. Check out those amazing music videos!</p>
 			<script src="/theme/js/breakpoints.min.js"></script>
 			<script src="/theme/js/util.js"></script>
 			<script src="/theme/js/main.js"></script>
-
-	</body>
+		<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+		<style>
+			/* Smaller search icon */
+			.pagefind-ui__form:before {
+				width: 12px !important;
+				height: 12px !important;
+				top: 12px !important;
+				left: 12px !important;
+			}
+			/* Adjust input padding for smaller icon */
+			.pagefind-ui__search-input {
+				padding-left: 34px !important;
+			}
+			/* Clear button text centered */
+			.pagefind-ui__search-clear {
+				padding-left: calc(15px * var(--pagefind-ui-scale)) !important;
+			}
+			/* Scrollable results */
+			.pagefind-ui__results-area {
+				max-height: 60vh;
+				overflow-y: auto;
+			}
+		</style>
+		<script src="/pagefind/pagefind-ui.js"></script>
+		<script>
+			window.addEventListener('DOMContentLoaded', function() {
+				new PagefindUI({ element: '#pagefind-search', showImages: false, resetStyles: false });
+			});
+		</script>
 </html>

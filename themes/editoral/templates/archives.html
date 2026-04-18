@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+	<header class="major">
+		<h2>Posts</h2>
+	</header>
+	<div class="posts posts-list">
+		{% for article in articles_page.object_list %}
+		<article>
+			<a href="{{ SITEURL }}/{{ article.url }}" class="image">
+				{% if article.image %}
+					<img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.title }}" />
+				{% else %}
+					<img src="{{ SITEURL }}/theme/images/pic01.jpg" alt="{{ article.title }}" />
+				{% endif %}
+			</a>
+			<h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+			<p class="post-meta">{{ article.date.strftime('%B %d, %Y') }}</p>
+			<p>{{ article.summary }}</p>
+			<ul class="actions">
+				<li><a href="{{ SITEURL }}/{{ article.url }}" class="button">Read more</a></li>
+			</ul>
+		</article>
+		{% endfor %}
+	</div>
+
+	{% if articles_page.has_other_pages() %}
+	<ul class="pagination">
+		{% if articles_page.has_previous() %}
+			<li><a href="{{ SITEURL }}/{{ articles_previous_page.save_as }}" class="button">&#171; Newer</a></li>
+		{% else %}
+			<li><span class="button disabled">&#171; Newer</span></li>
+		{% endif %}
+		{% for p in articles_page.paginator.page_range %}
+			{% if p == articles_page.number %}
+				<li><span class="button primary">{{ p }}</span></li>
+			{% elif p == 1 %}
+				<li><a href="{{ SITEURL }}/archives.html" class="button">{{ p }}</a></li>
+			{% else %}
+				<li><a href="{{ SITEURL }}/archives{{ p }}.html" class="button">{{ p }}</a></li>
+			{% endif %}
+		{% endfor %}
+		{% if articles_page.has_next() %}
+			<li><a href="{{ SITEURL }}/{{ articles_next_page.save_as }}" class="button">Older &#187;</a></li>
+		{% else %}
+			<li><span class="button disabled">Older &#187;</span></li>
+		{% endif %}
+	</ul>
+	{% endif %}
+</section>
+{% endblock %}

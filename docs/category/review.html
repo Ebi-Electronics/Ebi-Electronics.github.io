@@ -19,7 +19,7 @@
 		
 	</head>
 	
-	<body class="is-preload">
+	<body class="is-preload" data-pagefind-ignore="all">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -30,18 +30,17 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Ebi Electronics</strong></a>
-									<p>Another blog about electronics. Now with sea taste!</p>
-									<ul class="icons">
-										<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li> -->
-									</ul>
-									<span class="image object">
-										<img src="/theme/images/shrimp-logo.jpg" alt="" height="100"/>
-									</span>
+									<div class="header-left">
+										<div class="site-branding">
+											<a href="index.html" class="logo"><strong>Ebi Electronics</strong></a>
+										</div>
+										<p class="site-subtitle">Another blog about electronics. Now with sea taste!</p>
+									</div>
+									<div class="header-right">
+										<span class="image object">
+											<img src="/theme/images/shrimp_logo.png" alt="" height="100"/>
+										</span>
+									</div>
 								</header>
 
 
@@ -158,15 +157,13 @@ kekeke</p>
 								<!-- Section с постами -->
     <section>
         <header class="major">
-            <h2>Последние записи</h2>
+            <h2>Latest Posts</h2>
         </header>
         <div class="posts">
             <article>
                 <a href="/the-newest-post.html" class="image">
-                    <!-- Добавим картинку из метаданных статьи -->
                 </a>
-                <h3>The newest post</h3>
-                <!-- Выводим краткое содержание (summary) -->
+                <h3><a href="/the-newest-post.html">The newest post</a></h3>
                 <p><p>The newest post</p>
 <h1>Header 1 of the newest post</h1>
 <p>testy test
@@ -174,15 +171,13 @@ kekeke</p>
 <div class="highlight"><pre><span></span><code>code test
 </code></pre></div></p>
                 <ul class="actions">
-                    <li><a href="/the-newest-post.html" class="button">Читать далее</a></li>
+                    <li><a href="/the-newest-post.html" class="button">Read more</a></li>
                 </ul>
             </article>
             <article>
                 <a href="/my-first-review.html" class="image">
-                    <!-- Добавим картинку из метаданных статьи -->
                 </a>
-                <h3>My First Review</h3>
-                <!-- Выводим краткое содержание (summary) -->
+                <h3><a href="/my-first-review.html">My First Review</a></h3>
                 <p><p>Following is a review of my favorite mechanical keyboard.</p>
 <h1>test article</h1>
 <p>$$ f = kx + b \sigma $$</p>
@@ -195,10 +190,13 @@ adfadf</p>
 <li>asd</li>
 </ul></p>
                 <ul class="actions">
-                    <li><a href="/my-first-review.html" class="button">Читать далее</a></li>
+                    <li><a href="/my-first-review.html" class="button">Read more</a></li>
                 </ul>
             </article>
         </div>
+        <ul class="actions">
+            <li><a href="/archives.html" class="button big">All posts</a></li>
+        </ul>
     </section>
 							
 
@@ -210,20 +208,17 @@ adfadf</p>
 						<div class="inner">
 
 							<!-- Search -->
-								<!-- <section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section> -->
-
+						<section id="search" class="alt">
+							<div id="pagefind-search"></div>
+						</section>
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">Posts</a></li>
+										<li><a href="/index.html">Homepage</a></li>
+										<li><a href="/archives.html">Posts</a></li>
 										<li>
 											<span class="opener">Projects</span>
 											<ul>
@@ -289,6 +284,33 @@ adfadf</p>
 			<script src="/theme/js/breakpoints.min.js"></script>
 			<script src="/theme/js/util.js"></script>
 			<script src="/theme/js/main.js"></script>
-
-	</body>
+		<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+		<style>
+			/* Smaller search icon */
+			.pagefind-ui__form:before {
+				width: 12px !important;
+				height: 12px !important;
+				top: 12px !important;
+				left: 12px !important;
+			}
+			/* Adjust input padding for smaller icon */
+			.pagefind-ui__search-input {
+				padding-left: 34px !important;
+			}
+			/* Clear button text centered */
+			.pagefind-ui__search-clear {
+				padding-left: calc(15px * var(--pagefind-ui-scale)) !important;
+			}
+			/* Scrollable results */
+			.pagefind-ui__results-area {
+				max-height: 60vh;
+				overflow-y: auto;
+			}
+		</style>
+		<script src="/pagefind/pagefind-ui.js"></script>
+		<script>
+			window.addEventListener('DOMContentLoaded', function() {
+				new PagefindUI({ element: '#pagefind-search', showImages: false, resetStyles: false });
+			});
+		</script>
 </html>

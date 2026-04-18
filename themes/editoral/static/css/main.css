@@ -1399,7 +1399,9 @@ ul.contact {
 ul.pagination {
   cursor: default;
   list-style: none;
-  padding-left: 0; }
+  padding-left: 0;
+  text-align: center;
+  margin-top: 3em; }
   ul.pagination li {
     display: inline-block;
     padding-left: 0;
@@ -1724,6 +1726,48 @@ button,
       font-size: 1.25rem; } }
 
 /* Posts */
+.posts.posts-list {
+  display: block;
+  margin: 0 auto;
+  width: 70%; }
+  .posts.posts-list article {
+    width: auto;
+    margin: 0 0 2em 0; }
+    .posts.posts-list article:before {
+      display: none; }
+    .posts.posts-list article:after {
+      background: rgba(210, 215, 217, 0.75);
+      bottom: -1em;
+      content: '';
+      display: block;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      width: 100%; }
+    .posts.posts-list article .image {
+      max-height: 200px;
+      overflow: hidden; }
+      .posts.posts-list article .image img {
+        display: block;
+        width: 100%;
+        height: auto; }
+    .posts.posts-list article h3 {
+      margin: 0.75em 0 0.25em 0;
+      font-size: 1.2em; }
+    .posts.posts-list article .post-meta {
+      margin: 0.25em 0;
+      font-size: 0.85em; }
+    .posts.posts-list article p {
+      font-size: 0.9em;
+      margin: 0.5em 0;
+      line-height: 1.4; }
+    .posts.posts-list article .actions {
+      margin-top: 0.75em; }
+
+ul.pagination {
+  text-align: center;
+  margin-top: 3em; }
+
 .posts {
   display: -moz-flex;
   display: -webkit-flex;
@@ -1859,7 +1903,7 @@ button,
     margin: 0 auto;
     max-width: 110em; }
     #main > .inner > section {
-      padding: 6em 0 4em 0 ;
+      padding: 2em 0 1.3em 0 ;
       border-top: solid 2px rgba(210, 215, 217, 0.75); }
       #main > .inner > section:first-of-type {
         border-top: 0 !important; }
@@ -1867,17 +1911,17 @@ button,
     #main > .inner {
       padding: 0 5em 0.1em 5em ; }
       #main > .inner > section {
-        padding: 5em 0 3em 0 ; } }
+        padding: 1.7em 0 1em 0 ; } }
   @media screen and (max-width: 1280px) {
     #main > .inner {
       padding: 0 4em 0.1em 4em ; }
       #main > .inner > section {
-        padding: 4em 0 2em 0 ; } }
+        padding: 1.3em 0 0.7em 0 ; } }
   @media screen and (max-width: 736px) {
     #main > .inner {
       padding: 0 2em 0.1em 2em ; }
       #main > .inner > section {
-        padding: 3em 0 1em 0 ; } }
+        padding: 1em 0 0.3em 0 ; } }
 
 /* Sidebar */
 #search form {
@@ -2078,19 +2122,54 @@ button,
   border-bottom: solid 5px #f56a6a;
   padding: 6em 0 1em 0;
   position: relative; }
-  #header > * {
+  #header .header-left {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
     -moz-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
     margin-bottom: 0; }
+  #header .header-right {
+    -moz-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-bottom: 0; }
+  #header .site-branding {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center; }
   #header .logo {
     border-bottom: 0;
     color: inherit;
     font-family: "Roboto Slab", serif;
-    font-size: 1.125em; }
-  #header .icons {
-    text-align: right; }
+    font-size: 2.5em;
+    line-height: 1.1; }
+  #header .site-subtitle {
+    font-size: 1em;
+    letter-spacing: 0.075em;
+    margin: 0.5em 0 0 0;
+    text-transform: none; }
   @media screen and (max-width: 1680px) {
     #header {
       padding-top: 2em; } }
@@ -2098,14 +2177,10 @@ button,
     #header {
       padding-top: 6.5em; }
       #header .logo {
-        font-size: 1.25em;
+        font-size: 1.75em;
         margin: 0; }
-      #header .icons {
-        height: 5em;
-        line-height: 5em;
-        position: absolute;
-        right: -0.5em;
-        top: 0; } }
+      #header .site-subtitle {
+        font-size: 0.9em; } }
 
 /* Banner */
 #banner {

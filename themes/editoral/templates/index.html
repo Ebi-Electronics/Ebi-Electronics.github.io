@@ -126,25 +126,26 @@
 								<!-- Section с постами -->
     <section>
         <header class="major">
-            <h2>Последние записи</h2>
+            <h2>Latest Posts</h2>
         </header>
         <div class="posts">
-            {% for article in articles %}
+            {% for article in articles[:4] %}
             <article>
                 <a href="{{ SITEURL }}/{{ article.url }}" class="image">
-                    <!-- Добавим картинку из метаданных статьи -->
                     {% if article.image %}
                     <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.title }}" />
                     {% endif %}
                 </a>
-                <h3>{{ article.title }}</h3>
-                <!-- Выводим краткое содержание (summary) -->
+                <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
                 <p>{{ article.summary }}</p>
                 <ul class="actions">
-                    <li><a href="{{ SITEURL }}/{{ article.url }}" class="button">Читать далее</a></li>
+                    <li><a href="{{ SITEURL }}/{{ article.url }}" class="button">Read more</a></li>
                 </ul>
             </article>
             {% endfor %}
         </div>
+        <ul class="actions">
+            <li><a href="{{ SITEURL }}/archives.html" class="button big">All posts</a></li>
+        </ul>
     </section>
 								{% endblock %}
