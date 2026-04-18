@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title> Ebi Electronics </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/theme/css/main.css" />
+		
+	</head>
+	
+	<body class="is-preload" >
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<div class="header-left">
+										<div class="site-branding">
+											<a href="index.html" class="logo"><strong>Ebi Electronics</strong></a>
+										</div>
+										<p class="site-subtitle">Another blog about electronics. Now with sea taste!</p>
+									</div>
+									<div class="header-right">
+										<span class="image object">
+											<img src="/theme/images/shrimp_logo.png" alt="" height="100"/>
+										</span>
+									</div>
+								</header>
+
+<section>
+    <header class="main">
+        <h1>Настройка Otamatone</h1>
+    </header>
+
+    <!-- Добавим информацию о статье -->
+    <p>
+        Опубликовано: Сб 18 Апрель 2026 |
+        Автор: RDash |
+        Категория: <a href="/category/posts.html">posts</a>
+    </p>
+
+    <hr class="major" />
+
+    <!-- Здесь будет полный контент статьи -->
+    <div class="content">
+        <h3>Вступление</h3>
+<p>У меня есть Otamatone Regular. Довольно нестандартный, как по мне, инструмент с широкими возможностями звучания, однако весьма сложный в освоении. Хочу научиться на нем играть, но проблема в том, что ноты расположены очень близко на сенсорном тачпаде (грифе). Особенно возле основания (из-за логарифмической шкалы): нужно очень точно попадать по нотам и быстро дотягивать их наклоном пальца (как на скрипке) в случае промаха.</p>
+<p>Кроме того, из-за внутреннего устройства осциллятора ноты на паде немного «отъезжают» в зависимости от внешних условий, поэтому нельзя точно их обозначить на «грифе» для дальнейшего обучения. К тому же изначально нет возможности подстройки.</p>
+<p>С подстройкой высоты нот вопрос решается довольно просто — установкой последовательного потенциометра, как в <a href="https://www.google.com/url?sa=E&amp;q=https%3A%2F%2Fwww.instagram.com%2Freel%2FDEPzI-WxnVG%2F">этом видео</a></p>
+<p>Раз уж задумал разбирать инструмент, решил сразу добавить выход на наушники и регулятор громкости, чтобы не раздражать окружающих своими тренировками.</p>
+<h3>Теория</h3>
+<h4>Схема</h4>
+<p>Внутреннее устройство и разборка хорошо освещены в этом видео:
+<a href="https://www.youtube.com/watch?v=m97DfpA9MLI">TEF (Formerly TWB) #108 | Otamatone Teardown, Schematic, and Analysis</a>
+<img alt="Схема отаматона" src="/images/otamatone_tuning/Pasted image 20260218140510.png">
+Устройство максимально простое - мультивибратор с усилителем класса В.
+Самый большой интерес представляет лента сопротивлений, обозначенная на схеме как Stem.</p>
+<h4>Подбор резисторов</h4>
+<p>Сопротивление тачпада изменяется в границах примерно от 20к до 200 кОм.
+Материал тач пада имеет одинаковое сопротивление на единицу длинны.</p>
+<p>Формула для расчета частоты мультивибратора:
+</p>
+<div class="math">$$
+f = \frac{1}{0,7 R_1 C_1 + 0,7 R_2 C_2}
+$$</div>
+<p>
+Где 0,7 = ln(2)</p>
+<p>Частоты, которые можно в теории получить для трех регистров:</p>
+<p><img alt="график 1" src="/images/otamatone_tuning/Pasted image 20260219173828.png"></p>
+<p><img alt="график 2" src="/images/otamatone_tuning/Pasted image 20260219173833.png" width="80%"></p>
+<p>Поскольку изменяемый резистор (тачпад) находится в знаменателе формулы частоты ноты, то получается гипербола (обратная пропорциональность). Отсюда и плотно расположенные ноты у основания грифа.</p>
+<p>Если добавить последовательное сопротивление (например, 50 кОм), то относительное изменение сопротивления тачпада будет происходить в намного меньших границах. Это сузит диапазон нот, которые можно играть в каждом регистре, а значит, увеличит расстояние между ними.</p>
+<p><img alt src="/images/otamatone_tuning/Pasted image 20260219180031.png" width="80%">
+При этом неизбежно понизится общий строй регистра. Это можно исправить только изменением емкости конденсаторов. Но учитывая, что верхний регистр слишком пискливый и его сложно использовать для чего-то музыкального, изменять емкости, по моему мнению, незачем.</p>
+<p>Было решено добавить внутрь линейный потенциометр на 100 кОм последовательно с тачпадом.</p>
+<h4>Подключение мини джека</h4>
+<p>Для уменьшения громкости на низкоимпедансных наушниках нужно добавить резистор последовательно с ними. Значения около 150 Ом будет достаточно.
+Чтобы динамик не звучал одновременно с наушниками нужно взять мини-джек с переключаетелем: если наушники воткнуты, то динамик отключается.
+<img alt src="/images/otamatone_tuning/Pasted image 20260220134611.png"></p>
+<h4>Плавная регулировка громкости</h4>
+<p>Минимальной громкости отаматона зачастую бывает слишком много для долгих занятий - все, кто будут слышать истошные звуки обучения долго не смогут этого выносить.
+Поскольку звук отаматона - это прямоугольная волна, то усилитель работает в ключевом режиме и здесь не получится просто добавить потенциометр на базу транзисторов.
+Проще всего будет вместо 10 омного резистрора добавить эмиттерный повторитель где-то на 1 А, база которого будет управляться потенциометром на 10к (желательно логарифмическим).
+<img alt src="/images/otamatone_tuning/Pasted image 20260220134759.png"></p>
+<h3>Проверка на практике</h3>
+<p>Когда теоретически понятно, что нужно сделать, осталось уместить это все в небольшом корпусе.
+Как я ни старался, стандартные потенциометры не получилось вместить, потому использовал маленькие. Для громкости я взял специально купленный для стилофона потенциометр с крутилкой, а для высоты тона пришлось использовать подстроечный резистор под плоскую отвертку. Решил, что тон я не буду сильно часто подстраивать и этого будет достаточно.</p>
+<p><img alt src="/images/otamatone_tuning/IMG_20260224_220254.jpg" width="50%">
+В разборе</p>
+<p><img alt src="/images/otamatone_tuning/IMG_20260224_220334.jpg" width="50%">
+Плата чуть детальнее</p>
+<p><img alt src="/images/otamatone_tuning/IMG_20260224_220424.jpg" width="50%">
+Все модификации в сборе</p>
+<p>В процессе модификации я проверял правильность работы схемы и то, сходится ли теория с практикой. К счастью, всё сошлось.
+Последовательно с наушниками использовал резистор 220 Ом вместо 150 - такой первый попался под руку. 
+Транзистор специально брал такой, какой будет не жалко (BDP281, но конкретная модель здесь не имеет значения).
+Красный и синий провод использовались для питания от ЛБП во время тестов.</p>
+<p><img alt src="/images/otamatone_tuning/IMG_20260224_220509.jpg" width="50%">
+Хорошенько все примерив вырезал отверстия</p>
+<p><img alt src="/images/otamatone_tuning/IMG_20260224_220525.jpg" width="50%">
+<img alt src="/images/otamatone_tuning/IMG_20260224_220541.jpg" width="50%">
+Все в сборе</p>
+<p>Уместить всё внутри было немного проблематично, но всё работает как задумано.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+    </div>
+</section>
+							
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+						<section id="search" class="alt">
+							<div id="pagefind-search"></div>
+						</section>
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="/index.html">Homepage</a></li>
+										<li><a href="/archives.html">Posts</a></li>
+										<li>
+											<span class="opener">Projects</span>
+											<ul>
+												<li><a href="#">StyloSynth</a></li>
+												<li><a href="#">uNomad</a></li>
+											</ul>
+										</li>
+										<li><a href="#">About</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<!--section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="/theme/images/pic07.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="/theme/images/pic08.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="/theme/images/pic09.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</section-->
+
+							<!-- Section -->
+								<!--section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+										<li class="icon solid fa-phone">(000) 000-0000</li>
+										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+										Nashville, TN 00000-0000</li>
+									</ul>
+								</section-->
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Footer</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/theme/js/jquery.min.js"></script>
+			<script src="/theme/js/browser.min.js"></script>
+			<script src="/theme/js/breakpoints.min.js"></script>
+			<script src="/theme/js/util.js"></script>
+			<script src="/theme/js/main.js"></script>
+		<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+		<style>
+			/* Smaller search icon */
+			.pagefind-ui__form:before {
+				width: 12px !important;
+				height: 12px !important;
+				top: 12px !important;
+				left: 12px !important;
+			}
+			/* Adjust input padding for smaller icon */
+			.pagefind-ui__search-input {
+				padding-left: 34px !important;
+			}
+			/* Clear button text centered */
+			.pagefind-ui__search-clear {
+				padding-left: calc(15px * var(--pagefind-ui-scale)) !important;
+			}
+			/* Scrollable results */
+			.pagefind-ui__results-area {
+				max-height: 60vh;
+				overflow-y: auto;
+			}
+		</style>
+		<script src="/pagefind/pagefind-ui.js"></script>
+		<script>
+			window.addEventListener('DOMContentLoaded', function() {
+				new PagefindUI({ element: '#pagefind-search', showImages: false, resetStyles: false });
+			});
+		</script>
+</html>
